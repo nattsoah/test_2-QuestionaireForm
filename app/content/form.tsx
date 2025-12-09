@@ -109,7 +109,7 @@ export default function Form() {
 
     return (
         <>
-            <Header onSave={formik.handleSubmit} />
+            <Header onSave={formik.handleSubmit} onCancel={formik.resetForm} />
 
             <Box
                 display={'flex'}
