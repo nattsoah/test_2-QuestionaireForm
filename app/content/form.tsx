@@ -1,5 +1,5 @@
 'use client'
-import { Box, Button, FormControl, Grid, IconButton, Radio, RadioGroup, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, FormControl, Grid, IconButton, Radio, RadioGroup, TextField, Typography } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { ContentCopy, DeleteOutline, Done } from "@mui/icons-material";
 import Header from "../component/header";
@@ -108,26 +108,24 @@ export default function Form() {
 
 
     return (
-        <>
+        <Grid
+            height={'100%'}
+            bgcolor={'#F3F4F6'}
+        >
             <Header onSave={formik.handleSubmit} onCancel={formik.resetForm} />
-
             <Box
                 display={'flex'}
                 flexDirection={'column'}
                 justifyContent={'center'}
                 alignItems={'center'}
                 my={'24px'}
-                bgcolor={''}
-                sx={{
-                    width: '100%',
-                    px: '24px',
-                }}
+                paddingX={'24px'}
+                width={'100%'}
             >
                 <Grid
                     container
                     maxWidth={'1392px'}
                     width={'100%'}
-                    bgcolor={''}
                     alignItems={'center'}
                 >
                     <Box
@@ -135,25 +133,21 @@ export default function Form() {
                         width={'100%'}
                         display={'flex'}
                         flexDirection={'column'}
-                        sx={{
-                            borderRadius: '8px'
-                        }}
+                        borderRadius={'8px'}
                         boxShadow={'0px 4px 8px #081D1F1A'}
                     >
                         <Box
-                            sx={{
-                                padding: { xs: '16px', sm: '20px', md: '24px' },
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: { xs: '16px', sm: '18px', md: '20px' },
-                                borderBottom: '1px solid #C2C9D1',
-                            }}
-
+                            padding={{ xs: '16px', sm: '20px', md: '24px' }}
+                            gap={{ xs: '16px', sm: '18px', md: '20px' }}
+                            display={'flex'}
+                            flexDirection={'column'}
+                            borderBottom={'1px solid #C2C9D1'}
                         >
                             <Typography
                                 fontFamily={'Prompt'}
                                 fontWeight={400}
                                 fontSize={{ xs: 18, sm: 19, md: 20 }}
+                                color='black'
                             >
                                 Questionnaire Detail
                             </Typography>
@@ -167,9 +161,6 @@ export default function Form() {
                                 helperText={formik.touched.name && formik.errors.name}
                                 onChange={formik.handleChange}
                                 value={formik.values.name}
-                            // sx={{
-                            //     border:'1px solid #616569'
-                            // }}
                             />
                         </Box>
 
@@ -177,14 +168,10 @@ export default function Form() {
                         {formik.values.question.map((q, index) => (
                             <Box key={q.id}>
                                 <Box
-                                    sx={{
-                                        // padding: { xs: '16px', sm: '20px', md: '24px' },
-                                        padding: '24px 24px 0px 24px',
-                                        // borderTop: '1px solid #C2C9D1',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        gap: { xs: '16px', sm: '18px', md: '20px' }
-                                    }}
+                                    padding={'24px 24px 0px 24px'}
+                                    display={'flex'}
+                                    flexDirection={'column'}
+                                    gap={{ xs: '16px', sm: '18px', md: '20px' }}
                                 >
 
                                     {/* question */}
@@ -192,6 +179,7 @@ export default function Form() {
                                         fontFamily={'Prompt'}
                                         fontWeight={400}
                                         fontSize={{ xs: 18, sm: 19, md: 20 }}
+                                        color='black'
                                     >
                                         Question {index + 1}
                                     </Typography>
@@ -216,24 +204,22 @@ export default function Form() {
                                         >
                                             {q.choice.map((choice, c) => (
                                                 <Box
+                                                    display={'flex'}
+                                                    alignItems={'center'}
+                                                    ml={0}
+                                                    mt={'24px'}
+                                                    gap={'24px'}
                                                     key={choice.id}
-                                                    sx={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        ml: 0,
-                                                        mt: '24px',
-                                                        gap: '24px',
-                                                    }}
                                                 >
                                                     {/* radio */}
                                                     <Box
+                                                        position={'relative'}
+                                                        width={24}
+                                                        height={24}
+                                                        borderRadius={'50%'}
+                                                        display={'flex'}
+                                                        alignItems={'center'}
                                                         sx={{
-                                                            position: 'relative',
-                                                            width: 24,
-                                                            height: 24,
-                                                            borderRadius: '50%',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
                                                             justifyContent: 'center',
                                                             '&:has(.Mui-checked)': {
                                                                 backgroundColor: '#00C62B',
@@ -295,18 +281,12 @@ export default function Form() {
 
                                     {/* Add choise */}
                                     <Box
-                                        sx={{
-                                            pb: '8px',
-                                            borderBottom: '1px solid #C2C9D1',
-                                            // display: 'flex',
-                                            // flexDirection: 'column',
-                                            // gap: { xs: '16px', sm: '18px', md: '20px' }
-                                        }}
+                                        pb={'8px'}
+                                        borderBottom={'1px solid #C2C9D1'}
                                     >
                                         <Button
                                             variant="text"
                                             sx={{
-                                                // maxWidth: '100%',
                                                 height: '48px',
                                                 borderColor: '#FF5C00',
                                                 color: '#FF5C00',
@@ -329,19 +309,15 @@ export default function Form() {
 
                                 {/* Option */}
                                 <Box
-                                    sx={{
-                                        display: 'flex',
-                                        gap: '24px',
-                                        py: '24px',
-                                        // pb: '8px',
-                                        pl: '24px',
-                                        borderBottom: '1px solid #C2C9D1',
-                                    }}
+                                    display={'flex'}
+                                    gap={'24px'}
+                                    py={'24px'}
+                                    pl={'24px'}
+                                    borderBottom={'1px solid #C2C9D1'}
                                 >
                                     <Button
                                         variant="text"
                                         sx={{
-                                            // maxWidth: '100%',
                                             height: '48px',
                                             borderColor: 'black',
                                             color: 'black',
@@ -364,7 +340,6 @@ export default function Form() {
                                     <Button
                                         variant="text"
                                         sx={{
-                                            // maxWidth: '100%',
                                             height: '48px',
                                             borderColor: 'black',
                                             color: 'black',
@@ -388,13 +363,10 @@ export default function Form() {
                         ))}
                         {/* Add question */}
                         <Box
-                            sx={{
-                                padding: { xs: '16px', sm: '20px', md: '24px' },
-                                // borderTop: '1px solid #C2C9D1',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: { xs: '16px', sm: '18px', md: '20px' }
-                            }}
+                            padding={{ xs: '16px', sm: '20px', md: '24px' }}
+                            display={'flex'}
+                            flexDirection={'column'}
+                            gap={{ xs: '16px', sm: '18px', md: '20px' }}
                         >
                             <Button
                                 variant="outlined"
@@ -421,7 +393,7 @@ export default function Form() {
                     </Box>
                 </Grid >
             </Box >
-        </>
+        </Grid>
 
     )
 }

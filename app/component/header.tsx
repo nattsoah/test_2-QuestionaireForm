@@ -9,20 +9,18 @@ type Props = {
 export default function Header({ onSave, onCancel }: Props) {
   return (
     <AppBar
-      // maxWidth={false}
       elevation={0}
       position="static"
       sx={{
         backgroundColor: 'white',
       }}>
+
       {/* topic */}
       <Box
         maxHeight={'64px'}
-        sx={{
-          padding: '12px',
-          pl: '24px',
-          borderBottom: '1px solid #C2C9D1'
-        }}
+        padding={'12px'}
+        pl={'24px'}
+        borderBottom={'1px solid #C2C9D1'}
       >
         <Typography
           fontFamily={'Prompt'}
@@ -39,16 +37,13 @@ export default function Header({ onSave, onCancel }: Props) {
       <Box
         maxWidth={'100%'}
         height={'73px'}
-        sx={{
-          padding: '12px',
-          pr: '24px',
-          display: 'flex',
-          gap: '12px',
-          justifyContent: 'end',
-          // alignItems:'center',
-          // borderTop: '1pxrgb(226, 83, 0)',
-          borderBottom: '1px solid #C2C9D1'
-        }}>
+        padding={'12px'}
+        pr={'24px'}
+        display={'flex'}
+        gap={'12px'}
+        justifyContent={'end'}
+        borderBottom={'1px solid #C2C9D1'}
+      >
         <Button
           variant="outlined"
           sx={{
