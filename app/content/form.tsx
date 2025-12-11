@@ -278,7 +278,12 @@ export default function Form() {
                                                         />
                                                         <IconButton
                                                             onClick={() => deleteChoice(q.id, choice.id)}
-                                                            sx={{ width: '24px', height: '24px', color: 'black' }}
+                                                            sx={{
+                                                                width: '24px',
+                                                                height: '24px',
+                                                                color: 'black',
+                                                                display: formik.values.question[c]?.choice.length <= 1 ? 'none'  : 'flex'
+                                                            }}
                                                         >
                                                             <DeleteOutline />
                                                         </IconButton>
@@ -352,10 +357,12 @@ export default function Form() {
                                             height: '48px',
                                             borderColor: 'black',
                                             color: 'black',
-                                            ":hover": { backgroundColor: 'transparent' }
+                                            ":hover": { backgroundColor: 'transparent' },
+                                            display: formik.values.question.length <= 1 ? 'none' : 'flex'
                                         }}
                                         startIcon={<DeleteOutline />}
                                         onClick={() => deleteQuestion(q.id)}
+
                                     >
                                         <Typography
                                             fontFamily={'Prompt'}
@@ -399,7 +406,7 @@ export default function Form() {
                                 </Typography>
                             </Button>
                         </Box>
-                    </Box>
+                    </Box >
                 </Grid >
             </Box >
         </Grid>
