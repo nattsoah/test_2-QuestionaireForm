@@ -192,10 +192,9 @@ export default function Form() {
                                         name={`question[${index}].question`}
                                         onChange={formik.handleChange}
                                         value={formik.values.question[index].question}
-                                        error={Boolean((formik.errors.question?.[index] as any)?.question)}
-                                        helperText={(formik.errors.question?.[index] as any)?.question}
+                                        error={Boolean((formik.touched.question && formik.errors.question?.[index] as any)?.question)}
+                                        helperText={(formik.touched.question && formik.errors.question?.[index] as any)?.question}
                                     />
-
                                     {/* choice */}
                                     < FormControl fullWidth>
                                         <RadioGroup
