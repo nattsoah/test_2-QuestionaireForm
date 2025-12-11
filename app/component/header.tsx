@@ -3,9 +3,10 @@ import { AppBar, Box, Button, Typography } from "@mui/material";
 
 type Props = {
   onSave: () => void;
+  onCancel: () => void;
 };
 
-export default function Header({ onSave }: Props) {
+export default function Header({ onSave, onCancel }: Props) {
   return (
     <AppBar
       elevation={0}
@@ -52,6 +53,7 @@ export default function Header({ onSave }: Props) {
             color: '#FF5C00',
             ":hover": { backgroundColor: 'white' }
           }}
+          onClick={() => onCancel?.()}
         >
           <Typography
             fontFamily={'Prompt'}

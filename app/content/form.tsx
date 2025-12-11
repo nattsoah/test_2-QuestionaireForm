@@ -112,8 +112,7 @@ export default function Form() {
             height={'100%'}
             bgcolor={'#F3F4F6'}
         >
-            <Header onSave={formik.handleSubmit} />
-
+            <Header onSave={formik.handleSubmit} onCancel={formik.resetForm} />
             <Box
                 display={'flex'}
                 flexDirection={'column'}
