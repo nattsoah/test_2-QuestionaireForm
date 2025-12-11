@@ -78,10 +78,20 @@ export default function Form() {
         const q = question.find(q => q.id === questionId);
         if (!q) return;
 
-        const choice = q.choice.map(c => ({
-            id: randomId(), text: c.text
-        }));
-        const duplicate = { ...q, id: randomId(), choice };
+        //correct
+        let newCorrect = null as number | null
+
+        //choice
+        const choice = q.choice.map(c => {
+            const id = randomId()
+            if (q.correct && c.id == q.correct) {
+                newCorrect = id
+            }
+            return { id: id, text: c.text }
+        });
+
+        const duplicate = { ...q, id: randomId(), choice, correct: newCorrect };
+
         formik.setFieldValue('question', [...question, duplicate]);
     };
 
